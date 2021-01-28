@@ -1,0 +1,20 @@
+<%= render "shared/header" %>
+<div class='main'>
+  <div class='contents'>
+    <div class='create-shift'>
+      <%= link_to(new_shift_path) do %>
+        <span class='purchase-btn-text'>シフトを作成する</span>
+      <% end %>
+    </div>
+    <div class='submit-shift'>
+      <%= link_to(new_day_path) do %>
+        <span class='purchase-btn-text'>シフトを提出する</span>
+      <% end %>
+    </div>
+    <div class='check-shift'>
+      <%= link_to(root_path, class: 'purchase-btn') do %>
+        <span class='purchase-btn-text'>シフトを確認する</span>
+      <% end %>
+    </div>
+  </div>
+</div>

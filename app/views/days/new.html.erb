@@ -1,0 +1,11 @@
+<%= form_with(model: @form, url: days_path, local: true) do |form| %>
+  <%= month_calendar do |date| %>
+    <%= form.fields_for :days do |f| %>
+      <%= date %>
+      <%= f.collection_select(:ok_id, Ok.all, :id, :name, {}, {class:"ok-select"}) %>
+      <%= f.hidden_field :shift_date, value: date %>
+      <%= f.hidden_field :user_id, value: @user %>
+    <% end %>
+  <% end %>
+  <%= form.submit "SEND" %>
+<% end %>  

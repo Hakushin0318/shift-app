@@ -1,0 +1,8 @@
+<%= month_calendar do |date| %>
+  <%= link_to shift_create_path(date_save: date) do %>
+    <span class='purchase-btn-text'>
+    <%= date %>作成
+    </span>
+  <% end %>
+<% end %>
+
