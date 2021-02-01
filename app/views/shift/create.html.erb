@@ -1,3 +1,63 @@
-<% @num.each do |day| %>
-  <%= day.name %>
-<% end %>
+<div class="shift_main">
+  <%= params[:date_save] %>
+  <div class="shift_set">
+    <table class="shift_table">
+      <tbody class="shift_table_body">
+        <tr class="shift_line">
+          <td id="shift_num1"></td>
+          <td id="shift_num2"></td>
+        </tr>
+        <tr class="shift_line">
+          <td id="shift_num3"></td>
+          <td id="shift_num4"></td>
+        </tr>
+        <tr class="shift_line">
+          <td id="shift_num5"></td>
+          <td id="shift_num6"></td>
+        </tr>
+        <tr class="shift_line">
+          <td id="shift_num7"></td>
+          <td id="shift_num8"></td>
+        </tr>
+        <tr class="shift_line">
+          <td id="shift_num9"></td>
+          <td id="shift_num10"></td>
+        </tr>
+        <tr class="shift_line">
+          <td id="shift_num11"></td>
+          <td id="shift_num12"></td>
+        </tr>
+        <tr class="shift_line">
+          <td id="shift_num13"></td>
+          <td id="shift_num14"></td>
+        </tr>
+        <tr class="shift_line">
+          <td id="shift_num15"></td>
+          <td id="shift_num16"></td>
+        </tr>
+        <tr class="shift_line">
+          <td id="shift_num17"></td>
+          <td id="shift_num18"></td>
+          </tr>
+        <tr class="shift_line">
+          <td id="shift_num19"></td>
+          <td id="shift_num20"></td>
+        </tr>
+      </tbody>
+    </table>
+    <table>
+      <tbody>
+        <% @num.each do |day| %>
+          <tr>
+            <td class="employee">
+              <div class="employee_name" draggable="true">
+                <%= day.name %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+

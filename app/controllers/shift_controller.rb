@@ -8,8 +8,6 @@ class ShiftController < ApplicationController
 
   def create
     @user_days = Day.where(shift_date: params[:date_save], ok_id: 2)
-
-
     @num = []
     @user_days.each do |name|
       @num << User.find(name.user_id)
