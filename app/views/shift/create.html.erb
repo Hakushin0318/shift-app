@@ -4,44 +4,44 @@
     <table class="shift_table">
       <tbody class="shift_table_body">
         <tr class="shift_line">
-          <td id="shift_num1"></td>
-          <td id="shift_num2"></td>
+          <td id="shift_num1" ondragover="onDragOver(event);" ondrop="onDrop(event);"></td>
+          <td id="shift_num2" ondragover="onDragOver(event);" ondrop="onDrop(event);"></td>
         </tr>
         <tr class="shift_line">
-          <td id="shift_num3"></td>
-          <td id="shift_num4"></td>
+          <td id="shift_num3" ondragover="onDragOver(event);" ondrop="onDrop(event);"></td>
+          <td id="shift_num4" ondragover="onDragOver(event);" ondrop="onDrop(event);"></td>
         </tr>
         <tr class="shift_line">
-          <td id="shift_num5"></td>
-          <td id="shift_num6"></td>
+          <td id="shift_num5" ondragover="onDragOver(event);" ondrop="onDrop(event);"></td>
+          <td id="shift_num6" ondragover="onDragOver(event);" ondrop="onDrop(event);"></td>
         </tr>
         <tr class="shift_line">
-          <td id="shift_num7"></td>
-          <td id="shift_num8"></td>
+          <td id="shift_num7" ondragover="onDragOver(event);" ondrop="onDrop(event);"></td>
+          <td id="shift_num8" ondragover="onDragOver(event);" ondrop="onDrop(event);"></td>
         </tr>
         <tr class="shift_line">
-          <td id="shift_num9"></td>
-          <td id="shift_num10"></td>
+          <td id="shift_num9" ondragover="onDragOver(event);" ondrop="onDrop(event);"></td>
+          <td id="shift_num10" ondragover="onDragOver(event);" ondrop="onDrop(event);"></td>
         </tr>
         <tr class="shift_line">
-          <td id="shift_num11"></td>
-          <td id="shift_num12"></td>
+          <td id="shift_num11" ondragover="onDragOver(event);" ondrop="onDrop(event);"></td>
+          <td id="shift_num12" ondragover="onDragOver(event);" ondrop="onDrop(event);"></td>
         </tr>
         <tr class="shift_line">
-          <td id="shift_num13"></td>
-          <td id="shift_num14"></td>
+          <td id="shift_num13" ondragover="onDragOver(event);" ondrop="onDrop(event);"></td>
+          <td id="shift_num14" ondragover="onDragOver(event);" ondrop="onDrop(event);"></td>
         </tr>
         <tr class="shift_line">
-          <td id="shift_num15"></td>
-          <td id="shift_num16"></td>
+          <td id="shift_num15" ondragover="onDragOver(event);" ondrop="onDrop(event);"></td>
+          <td id="shift_num16" ondragover="onDragOver(event);" ondrop="onDrop(event);"></td>
         </tr>
         <tr class="shift_line">
-          <td id="shift_num17"></td>
-          <td id="shift_num18"></td>
+          <td id="shift_num17" ondragover="onDragOver(event);" ondrop="onDrop(event);"></td>
+          <td id="shift_num18" ondragover="onDragOver(event);" ondrop="onDrop(event);"></td>
           </tr>
         <tr class="shift_line">
-          <td id="shift_num19"></td>
-          <td id="shift_num20"></td>
+          <td id="shift_num19"  ondragover="onDragOver(event);" ondrop="onDrop(event);"></td>
+          <td id="shift_num20" ondragover="onDragOver(event);" ondrop="onDrop(event);"></td>
         </tr>
       </tbody>
     </table>
@@ -50,7 +50,7 @@
         <% @num.each do |day| %>
           <tr>
             <td class="employee">
-              <div class="employee_name" draggable="true">
+              <div id="human1" class="employee_name" draggable="true" ondragstart="onDragStart(event);">
                 <%= day.name %>
               </div>
             </td>
@@ -60,4 +60,25 @@
     </table>
   </div>
 </div>
+<script type="text/javascript">
+function onDragStart(event)
+{
+    const nodes = Array.from(document.querySelectorAll(".employee_name"));
+    const index = nodes.findIndex(v=>v===event.target);
+    event.dataTransfer.setData('text/plain', index);
+}
 
+
+function onDragOver(event) {
+  event.preventDefault();
+}
+
+function onDrop(event)
+{
+    event.preventDefault();
+    const index = event.dataTransfer.getData('text');
+    const draggableElement = document.querySelectorAll(".employee_name")[index];
+    const dropzone = event.currentTarget;
+    dropzone.appendChild(draggableElement);
+}
+</script>
