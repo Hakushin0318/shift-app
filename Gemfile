@@ -59,3 +59,7 @@ gem 'pry-rails'
 gem "simple_calendar", "~> 2.0"
 
 gem "active_hash"
+
+gem "ranked-model"
+
+gem "jquery-ui-rails"
